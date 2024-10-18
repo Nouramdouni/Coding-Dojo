@@ -1,0 +1,40 @@
+
+.box div{  
+    display: flex; 
+    gap:20px;  
+    justify-content:space-between;
+
+
+    
+
+} 
+.box button
+{ 
+    margin-left: 20px; 
+    background-color:rgb(255,217,102) ; 
+    width:60px; 
+    height: 30px; 
+    font-size: 15px;  
+    border: solid black;
+    box-shadow: 2px 5px 0px black;
+    font-weight: bold;
+
+}
+.box{ 
+
+    border: solid black; 
+    width: 500px;  
+    height: 160px; 
+    font-family: cursive; 
+    font-size: 20px; 
+    padding-left: 20px; 
+    margin-left: 100px; 
+    margin-top: 50px;
+} 
+/* .box #p
+{
+margin: 0px; 
+} */
+.box div p{
+    margin-right:20px;
+}

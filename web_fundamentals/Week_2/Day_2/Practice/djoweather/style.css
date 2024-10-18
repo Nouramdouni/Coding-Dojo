@@ -1,0 +1,142 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: cursive;
+}
+
+/*******************header*****************************/
+.header {
+    background-color: rgb(159, 197, 248);
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 900px;
+    height: 60px;
+    margin: 0px auto; 
+    
+    justify-content: space-around;
+}
+
+.header h3 {
+    font-size: 30px;
+}
+
+ul {
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+    list-style: none;
+}
+
+/*****************main******************************/
+.main {
+    
+    width: 700px;
+    margin: 0px auto;
+
+}
+
+/****************son********************************/
+.son {
+    display: flex;
+    align-items: center; 
+    height: 50px;
+    justify-content: space-between;
+}
+
+.son h5 {
+    font-size: 25px;
+}
+
+
+.son select {
+    border: 2px black solid;
+}
+
+/*********************days****************************/
+.days {
+
+    display: flex;
+    gap: 20px; 
+    justify-content:space-between;
+    border-top: solid black; 
+    
+
+}
+/********************************day***********************/
+
+.day {
+    background-color: rgb(238, 238, 238);
+    margin-top:20px;  
+    display: flex; 
+    flex-direction: column; 
+    width: 150px;  
+    height: 230px; 
+    padding-top: 10px;
+    text-align: center;   
+    gap: 5%;
+
+
+}   
+.day p{  
+    font-size:90% ;
+    font-weight: bolder;
+
+}
+.day span { 
+
+    padding-top: 5px; 
+    font-weight: bold; 
+    font-size: 20px;
+}
+span a{
+    padding: 20px;  
+    color: blue; 
+
+
+} 
+span .a{
+    color: red;
+}
+
+
+.day img {   
+    
+    margin-top: 5px;
+    margin-left: 25px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+} 
+/*********************cooking******************/
+.cooking
+{
+    background-color: rgb(238,238,238); 
+    border: 2px  solid black; 
+    display: flex;   
+    width: 700px; 
+    justify-content: space-around;
+    gap: 40px;
+    align-items: center;
+    position: fixed; 
+    bottom:0px ; 
+     
+    
+} 
+.cooking p,h2{  
+
+    margin-left: -70px; 
+}
+.cooking img{
+    margin-left:  -20px;
+} 
+.cooking button{ 
+    border: 2px black solid; 
+    width: 100px; 
+    height: 30px; 
+    background-color:rgb(159,197,248) ;
+    box-shadow: 5px 4px 0px black; 
+    font-weight: bold; 
+    font-size: 15px;
+
+}

@@ -1,0 +1,264 @@
+* {
+    margin: 0px;
+    padding: 0px;
+} 
+/*******************profile******************/ 
+
+.profile {
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    font-family: cursive; 
+    color: aliceblue;
+    display: flex; 
+
+
+}
+.profile ul {
+    display: flex;
+    margin-left: 50px;
+
+}
+li {
+
+    margin: 10px;
+    list-style: none;
+    margin-right: 50px;
+
+
+}
+#butt {
+    background-color: rgb(23, 162, 184);
+    font-family: cursive;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    font: bold;
+    display: flex;
+    align-items: flex-end;
+    color: aliceblue;
+} 
+/************************main***********************/ 
+.main{ 
+    display: flex; 
+    width: 900px;
+    margin: 0px auto;
+    padding: 20px;
+} 
+/***************************box (card,)************/ 
+/*************************box*******************/
+.box {
+   
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+} 
+/*************************card*******************/
+/* ******************* */
+.card {
+    background-color: white;
+  
+    border: solid rgb(236, 235, 232);
+   
+    display: flex;
+    
+
+} 
+
+.img {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+}
+
+.user_circle {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    margin-top: -30px;
+    margin-left: 20px;
+    border: solid rgb(230, 221, 204);
+    border-radius: 50px;
+
+}
+.donne {
+    border: 1px solid #CFCFCF;
+    margin: 70px;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+
+}
+.top {
+    height: 90px;
+    background-color: #17A2B8;
+    display: flex;
+    justify-content: center;
+}
+.bottom {
+    margin-left: 20px;
+
+}
+ .jane {
+    display: inline-block;
+} 
+.location {
+    display: flex;
+    align-items: center;
+
+}
+.location p {
+    padding-left: 10px;
+}
+
+.disc p {
+    font-family: initial;
+    font-size: 20px;
+}
+.pam {
+    display: flex;
+    align-items: center;
+    padding: 3px;
+
+}
+a {
+    padding: 5px;
+
+} 
+/************************educatin**********************/ 
+.education {
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(211, 211, 211); 
+    margin-top: 30px;
+} 
+
+.edu {
+    background-color: rgb(51, 51, 51);
+    height: 30px;
+    margin-top: -5px;
+    color: rgb(254, 254, 254);
+}
+
+.edu h3 {
+
+    font-family: cursive;
+    margin-left: 20px;
+}
+.coding {
+    font-family: cursive;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#p {
+    color: rgb(113, 113, 113);
+}
+/*******************box2 (conect,)******************************/
+/*****************box2*********************/ 
+.box2{ 
+   
+    width: 400px; 
+    display: flex;   
+    flex-direction: column;
+    gap: 40px;
+    padding-left: 50px;
+} 
+/*******************connect***********************/
+.connect {
+    width: 200px;
+    height: 150px;
+    
+    border: 4px solid rgb(204,204,204);
+}
+.to{ 
+    margin-right:40px;
+}
+
+.connect .todd,.philK  {
+
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    margin-top: 20px; 
+    margin-left: 5px;
+
+} 
+.accept p{ 
+    margin-right: 150px;
+}
+
+#t2{
+    width: 20px; 
+    height: 20px;
+    
+
+} 
+#t3{width: 40px; 
+    height: 20px;
+    margin-top: 4px;
+
+}
+#t3 ,#t2{
+    background-color: #CFCFCF;
+    color: black;
+    
+    border-radius:50px;
+    text-align: center; 
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 5px; 
+    
+
+} 
+
+.imagacsept ,.imagacsept1{
+    width: 30px; 
+    height: 30px; 
+    
+   
+} 
+.connection {
+    width: 30px;
+    height: 30px;
+    margin-right: 3px; 
+   
+}
+/*************** your connection************************/
+.yourconection { 
+    margin-top: 50px;
+    border: solid rgb(204, 204, 204); 
+    width: 200px;
+    height: 295px;
+    background-color: rgb(255, 255, 255);
+} 
+.connect5 {
+    /* border: solid rgb(113, 113, 113); */
+    background-color: rgb(51, 51, 51);
+    color: aliceblue;
+    display: flex; 
+    height: 30px;   
+    margin-left: -5px; 
+    margin-top: -5px;
+    width: 210px;
+    align-items: center;
+
+
+}  
+.con{ 
+    display: flex; 
+    margin: 5px;
+    align-items: center;  
+    } 
+.lik{ 
+    border: solid rgb(204,204,204);
+    height: 30px; 
+    margin-top:11px ;  
+    
+    
+} 
+.lik a{  
+    margin-bottom: -10px;
+    color:rgb(29,89,151)
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h3>DojoWeather</h3>
+        <ul onclick="clike(this)">
+            <li>Burbank</li>
+            <li>chicago</li>
+            <li>Dallas</li>
+        </ul>
+    </div>
+    <div class="main ">
+        <div class="son">
+            <h5>San Jose</h5>
+            <div>
+                <a>show temperatur in</a>
+                <select name="temperatur" class="tempe" onchange="teperatur()">
+                    <option value="C">°C</option>
+                    <option value="F">°F</option>
+                </select>
+            </div>
+        </div>
+        <div class=" days">
+            <div class="day">
+                <h3>today</h3>
+                <img src="some_rain.png" alt="some_rain">
+                <p>somme rain</p>
+                <span><a class="a" id="t1">24</a><a id="t2">18</a></span>
+            </div>
+            <div class="day">
+                <h3>tomorrow</h3>
+                <img src="some_sun.png" alt="som_sun">
+                <p>some cloulds</p>
+                <span><a class="a"id="t3">27</a><a id="t4">16</a></span>
+            </div>
+            <div class="day">
+                <h3>friday</h3>
+                <img src="some_clouds.png" alt="some_clouds">
+                <p>some clouds</p>
+                <span><a class="a" id="t5">21</a><a id="t6">16</a></span>
+            </div>
+            <div class="day">
+                <h3>saturday</h3>
+                <img src="some_sun.png" alt="some_sun">
+                <p>some sun</p>
+                <span> <a class="a" id="t7">26</a><a id="t8">21</a></span>
+            </div>
+        </div>
+        <div class="cooking">
+            <img src="cookie.png" alt="cookie">
+            <div>
+                <h2> stop! cookine time </h2>
+                <p> we use cookies (sodly not the edible ones) to personlize <br>content
+                    and ads ,to prvide social media feature and <br> analyse our traffic.
+                    <a href="reda more">reda more......</a>
+                </p>
+
+            </div>
+            <button onclick="delte('.cooking')">IAccept</button>
+        </div>
+
+    </div>
+    <script src="weather.js"></script>
+</body>
+
+</html>
