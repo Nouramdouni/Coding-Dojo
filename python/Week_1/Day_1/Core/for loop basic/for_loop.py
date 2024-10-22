@@ -1,8 +1,8 @@
 #function 1
-def basic(a):  
-    for i in range(a+1): 
+def basic():  
+    for i in range(151): 
         print(i) 
-print(basic(150)) 
+print(basic()) 
 print ("*"*20) 
 #function 2
 def Multiples_of_Five(): 
