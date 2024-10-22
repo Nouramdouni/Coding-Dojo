@@ -6,26 +6,28 @@ class users:
         self.age=age 
         self.is_rewards_member =False 
         self.gold_card_points = 0 
+    
     def dispaly_info(self):
         print(f"first name: {self.first_name}")
         print(f"last name: {self.last_name}")
         print(f"email :{self.email}")
         print(f"age: {self.age}")
         print(f"is reward member: {self.is_rewards_member}")
-        print(f" gold card points: {self.gold_card_points}") 
+        print(f" gold card points: {self.gold_card_points}")  
+        return self
+    
     def enroll(self):
-      if(self.is_rewards_member):
-          print("user already a member") 
-          return False 
-      else:
-            self.is_rewards_member=True
-            self.gold_card_points=200 
-            return True
+        self.is_rewards_member=True
+        self.gold_card_points=200 
+        return self
+  
+        
+    
     def spend_points(self, amount):
-        self.gold_card_points=self.gold_card_points - amount
+        self.gold_card_points=self.gold_card_points - amount 
+        return self
 
 user1=users("yassin","benabdallah","yasssinbn@gmail.com",22) 
 user2=users("nourhene","amdouni","nourhene803@gamil",21)
-user1.dispaly_info.enroll().spend_points(50)
-print("#"*100)
-user2.dispaly_info().enroll().spend_points(80)
+user1.dispaly_info().enroll().spend_points(50).dispaly_info()
+user2.enroll().spend_points(80).dispaly_info()
