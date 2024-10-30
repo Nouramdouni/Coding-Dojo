@@ -13,7 +13,10 @@ where ninjas.id=( select  max(id)  from ninjas );
 select *from ninjas where id=1; 
 select * from ninjas order by dojo_id DESC  limit 1;
 select ninjas*  namee, id  from  ninjas dojos  join dojos on ninjas.dojo_id =dojos.id
-where ninjas.id=6
+where ninjas.id=6; 
+select ninjas.* from ninja 
+join dojos on dojos.id =ninjas.dojo_id;
+
 
 
 
