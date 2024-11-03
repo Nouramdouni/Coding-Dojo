@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<style> 
+    h1{  
+        padding: 20px;
+      text-align: center;
+    }
+    .box{ 
+        display: flex;
+        flex-direction: column;  
+        font-size: large; 
+        border: 2px solid gainsboro ; 
+        width: 900px; 
+        margin: 0px auto;   
+        gap: 20px; 
+        padding: 20px;
+        
+    }  
+    *{ 
+        margin: 0px ; 
+        padding: 0px;
+    }
+    span{ 
+        color: rgb(235, 91, 91); 
+    } 
+    #box div { 
+        display: flex; 
+        flex-direction: row;
+    } 
+
+</style>
+<body>
+    <h1>
+        Users {{user.id}}
+    </h1>
+     <a href="#">home</a>
+     <div class="box">
+        <div>
+            <h3><span>Full name :</span>{{user.first_name}} {{user.last_names}}</h3>
+        </div>
+        <div>
+            <h3><span>Email:</span>{{user.email}}</h3>
+        </div>
+        <div>
+            <h3><span>Created On:</span>{{user.created_at}}</h3>
+        </div>
+        <div>
+            <h3> <span>Updated On:</span>{{user.updated_at}}</h3> 
+        </div>
+     </div> 
+     <!-- <a href="//edit"> edit</a> | -->
+     <a href="#">Delete</a>
+
+</body>
+</html>
