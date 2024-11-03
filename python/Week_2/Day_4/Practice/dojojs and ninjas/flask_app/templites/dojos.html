@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+    <link rel="stylesheet" href="/flask_app/static/style.css">
+</head>
+<body>
+    <div  class="box">
+        <div class="box2">
+            <h1>New Dojo</h1>
+            <label for="" style="color: aliceblue;"> Name: </label> 
+            <input type="text" name="name"> 
+            <br>
+            <button type="submit">create</button>
+        </div> 
+        <div class="box3">
+            <h1>All Dojos </h1> 
+            {%for ures  in list_of_name:% } 
+                <ul>
+                    <li>{{ures.name}}</li>
+                </ul> 
+            {%endfor%}       
+        </div> 
+    </div> 
+    <a href=""> add ninja</a>
+</body>
+</html>

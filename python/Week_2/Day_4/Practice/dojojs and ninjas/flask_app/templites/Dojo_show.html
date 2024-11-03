@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <form action=""> 
+        <h1> SEATTLE NINJA</h1> 
+        <table>
+            <header> 
+                <th>first-name</th> 
+                <th>last-name</th>
+                <th>age</th>
+            </header> 
+            <tbody>
+                {{%for usre in list_of_user}} 
+                    <tr>
+                        <td>{{djo_and_ninja.first_name}}</td>
+                        <td>{{djo_and_ninja.last_name }}</td>
+                        <td>{{djo_and_ninja.age }}</td>
+                    </tr> 
+                {{%endfor%}}
+            </tbody>
+        </table>
+    </form>
+    
+</body>
+</html>

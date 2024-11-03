@@ -1,30 +1,28 @@
-from flask import Flask, render_template,session,request
-import random
-app=Flask(__name__)  
-app.secret_key="keep it safe " 
-@app.route("/")
-def  index(): 
-    return render_template("index.html") 
-@app.route("/guess", methode=['POST'])
-def index2():
-    guess=int(request.form['guess'])
-    numbre_guess=session["numbre_gess"]  
+from flask import Flask, session, render_template, request, redirect # type: ignore
+app = Flask(__name__)
+app.secret_key = 'skey'
 
-    
+@app.route('/')
+def index():
+    return render_template('index_html')
 
-    
+@app.route('/submit', methods=['POST'])
+def submit():
+    print(request.form)
+    name = request.form['user_name']
+    location= request.form['location']
+    language= request.form['language']
+    comments = request.form['comments']
 
+    session['user_name']=name
+    session['location']=location
+    session['language']=language
+    session['comments']=comments
+    return redirect('/result')
 
-
-
-
-
-
-
-
-
-
-
+@app.route('/result')
+def result():
+    return render_template('result_html', name=session['user_name'], location=session['location'])
 
 if __name__=='__main__':
     app.run(debug=True)
