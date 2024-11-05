@@ -26,8 +26,7 @@ class users:
         result=connectToMySQL("users_schema").query_db(query,data) 
         print(result)
     @classmethod
-    def get_user(cls,data): 
-         print("hiiii")
+    def get_user(cls,data):
          query="select * from users where id=%(id)s"
          result=connectToMySQL("users_schema").query_db(query,data)
          print(result)
