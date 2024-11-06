@@ -6,8 +6,9 @@ from flask_app import app
 def gete():
     return render_template("dojo_survey.html")  
 @app.route("/resulte")
-def resultttt():
-    return render_template("resulta.html")
+def resultttt(): 
+    return render_template("resulta.html") 
+##################################################################
 @app.route("/dojo",methods=["POST"])
 def get(): 
     if (Dojo.validate(request.form)==True):
