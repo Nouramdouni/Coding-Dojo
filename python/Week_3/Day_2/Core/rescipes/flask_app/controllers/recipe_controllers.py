@@ -1,60 +1,72 @@
 from flask_app import app
-from flask import render_template,redirect,request,session,flash
-from flask_app.models.user_models import User  
-from flask_app.models.recipe_models  import Recip  
-@app.route("/recipe") 
-def recipes():
-    return render_template("dashboard.html")
-@app.route("/recipes")
-def dashboard():   
-    if not 'user_id'in session:
+from flask import render_template,redirect,request,flash,session
+from flask_app.models.resipes_models import Recipe
+from flask_app.models.user_models import User
+@app.route('/recipes')
+def get_all():
+    if 'user_id' not in session :
         return redirect('/')
-    recipes=Recip.get_all() 
-    logged_user=User.get_by_id({"id":session['user_id']})
-    return render_template("dashboard.html", logged_user=logged_user ,request=recipes) 
-##############################################################################""
-@app.route("/recipe/new")
-def new_recipe(): 
-    if not 'user_id'in session:
+    user=User.get_one({'id':session['user_id']})
+    recipes=Recipe.get_all()
+    return render_template('recipes.html',user=user,recipes=recipes)
+
+
+
+@app.route('/recipes/new')
+def display():
+    if 'user_id' not in session :
         return redirect('/')
-    return render_template("recipe.html")
-###############################################################################"""" 
+    return render_template('new_recipe.html')
 
-@app.route("/recipe/create",methods=["POST"]) 
-def create_recipe(): 
-    if Recip.validate(request.form): 
-        data={ 
-
+@app.route('/create/recipe',methods=['POST'])
+def add_recipe() :
+    if 'user_id' not in session :
+        return redirect('/')
+    if Recipe.validate_recipe(request.form):
+        data={
             **request.form,
-            "user_id":session["user_id"] 
+            'user_id': session['user_id']
+            }
+        recipe_id=Recipe.create(data)
+        return redirect('/recipes')
+    return redirect ('/recipes/new')
+
+@app.route('/recipes/<int:id>')
+def display_user(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    recipe=Recipe.get_recipe_by_user({'id':id})
+    user= User.get_by_id({'id':session['user_id']})
+    return render_template('chow.html',recipe=recipe,user=user)
+
+@app.route('/recipe/edit/<int:id>')
+def display_edit_page(id):
+    if 'user_id' not in session :
+        return redirect('/')
+    recipe = Recipe.get_recipe_by_id({'id': id})
+    print(recipe)
+    return render_template('edit.html',recipe=recipe)
+
+
+@app.route('/recipe/edit/<int:id>')
+def display_edit_page(id):
+    if 'user_id' not in session :
+        return redirect('/')
+    recipe =Recipe.get_recipe_by_id({'id': id})
+    print(recipe)
+    return render_template('edit.html',recipe=recipe)
+@app.route('/recipe/delete/<int:id>')
+def delete(id):
+    Recipe.delete({'id': id})
+    return redirect('/recipes')
+
+@app.route('/edit/recipe/<int:id>', methods=['POST'])
+def update(id):
+    if Recipe.validate_recipe(request.form):
+        updated_recipe = {
+            'id':id,
+            **request.form
         }
-        print(data)
-        Recip.insert(data) 
-        return redirect("/recipes")
-    return redirect("/recipe/new")
-######################################################################################"""" 
-@app.route("/recipe/<int:id>")
-def show_one(id): 
-    if not 'user_id'in session:
-        return redirect('/')
-    recip=Recip.getBy_id({"id":id})
-    logged_user=User.get_by_id({"id":session['user_id']})
-    return render_template("view_recipe.html",recipe=recip ,logged__user=logged_user) 
-
-@app.route("/recipe/edit/<int:id>",methods=["POST"]) 
-def edit(id):
-    if Recip.validate(request.form): 
-        data={  
-            **request.form,
-            "id":id
-        } 
-        Recip.updat(data) 
-        return redirect("/recipes") 
-    return redirect(f"/recipe/edit/{id}")
-
-@app.route("/recipe/<int:id>/delete",methods=["POST"]) 
-def delete(id): 
-    Recip.dalete({"id":id}) 
-    return redirect("/")
-##########################################################################################
-
+        Recipe.update(updated_recipe) 
+        return redirect('/recipes')
+    return redirect('/recipe/edit/<int:id>')
