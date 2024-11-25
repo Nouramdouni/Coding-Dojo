@@ -6,7 +6,7 @@ from flask_app.models.user_models import User
 def get_all():
     if 'user_id' not in session :
         return redirect('/')
-    user=User.get_one({'id':session['user_id']})
+    user=User.get_by_id({'id':session['user_id']})
     recipes=Recipe.get_all()
     return render_template('recipes.html',user=user,recipes=recipes)
 
@@ -20,8 +20,7 @@ def display():
 
 @app.route('/create/recipe',methods=['POST'])
 def add_recipe() :
-    if 'user_id' not in session :
-        return redirect('/')
+
     if Recipe.validate_recipe(request.form):
         data={
             **request.form,
@@ -48,13 +47,10 @@ def display_edit_page(id):
     return render_template('edit.html',recipe=recipe)
 
 
-@app.route('/recipe/edit/<int:id>')
-def display_edit_page(id):
-    if 'user_id' not in session :
-        return redirect('/')
-    recipe =Recipe.get_recipe_by_id({'id': id})
-    print(recipe)
-    return render_template('edit.html',recipe=recipe)
+# @app.route('/recipe/edit/<int:id>' )
+# def edit(id):  
+#     recipe= Recipe.get_by_id({"id":id})
+#     return render_template("edit.html", recipe=recipe) 
 @app.route('/recipe/delete/<int:id>')
 def delete(id):
     Recipe.delete({'id': id})

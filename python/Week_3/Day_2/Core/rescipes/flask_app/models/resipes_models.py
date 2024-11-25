@@ -18,8 +18,8 @@ class Recipe :
         self.posted_by=""
     @classmethod
     def get_all(cls): 
-        qurey="select *form recipe join users on  on recipe.user_id = users.id;"
-        results= connectToMySQL(DB).query_db(query)
+        qurey="select *form recipe join users on   recipe.user_id = users.id;"
+        results= connectToMySQL(DB).query_db(qurey)
         recipes=[] 
         for row in results :
             recipe = cls(row)
@@ -63,7 +63,7 @@ class Recipe :
         return is_valid
     @classmethod 
     
-    def update(clas,data) :
+    def update(cls,data) :
         query="update recipe set name=%(name)s,description=%(description)s,instructions=%(instructions)s,date=%(date)s,time=%(time)s WHERE  id=%(id)s ; "
         return connectToMySQL(DB).query_db(query,data)
 
