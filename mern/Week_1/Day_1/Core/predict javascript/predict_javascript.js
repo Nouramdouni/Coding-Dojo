@@ -1,9 +1,10 @@
 /** problem1 */
 const cars = ['Tesla', 'Mercedes', 'Honda']
-const [ randomCar ] = cars // tesla 
-const [ ,otherRandomCar ] = cars // mercedes 
+const [ randomCar ] = cars // tesla ///  the first element of the cars array ('Tesla') 
+const [ ,otherRandomCar ] = cars // mercedes/// the second element of the cars array ('Tesla')  
 console.log(randomCar) // = tesla 
-console.log(otherRandomCar) //mercdes 
+console.log(otherRandomCar) //=mercdes  
+//
 /** problem 2  */ 
 const employee = {
     employeeName: 'Elon',
@@ -14,8 +15,9 @@ const { employeeName: otherName } = employee;
 console.log(otherName);
 /** Elon */
 console.log(employeeName);
-/** empolyeenName is not defined  */
-/**problem 3  */ 
+/** empolyeenName is not defined  */  
+// To fix this error you will write <"console.log (empolyee.empolyeeName)>"
+/**problem 3  */  
 const person = {
     name: 'Phil Smith',
     age: 47,
@@ -26,8 +28,22 @@ const { password: hashedPassword } = person;
 console.log(password);
 // "12345"
 console.log(hashedPassword);
-/* undefined
-because the password is not endifend   */ 
+/* undefined 
+in the  first console.log    
+No problem return  '12345' 
+bat in the second will have problem 
+because the password is not endifend in the persson */ 
+// We add password in the preson  
+/**const person = {
+    name: 'Phil Smith',
+    age: 47,
+    height: '6 feet', 
+    password = '12345'
+}
+const password = '12345';
+const { password: hashedPassword } = person;  
+console.log(password);  
+console.log(hashedPassword);*/
 /**problem4 */
 const numbers = [8, 2, 3, 5, 6, 1, 67, 12, 2];
 const [,first] = numbers;// 2
