@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+ 
+.bithday{
+  border: 2px solid wheat; 
+  margin: 10px; 
+  font-size: x-large;
+}
