@@ -1,25 +1,26 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Users = () => {
+const Users = (props) => {
 
-    const [firsrtname, setFirstname] = useState("") ;
+    const [firsrtname, setFirstname] = useState("");
     const [firsrtnameError, setFirstnameError] = useState("");
 
-    const [lastname, setLastname] = useState("") ;
+    const [lastname, setLastname] = useState("");
     const [lastnameError, setLastnameError] = useState("");
 
     const [email, setEmail] = useState("");
     const [emailError, setemailError] = useState("");
 
-    const [password, setPassword] = useState("") ;
+    const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
 
-    const [conf_passwored, setConf_passwored] = useState("") ;
+    const [conf_passwored, setConf_passwored] = useState("");
     const [conf_passworedError, setconf_passworedError] = useState("");
 
     const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
-    const [users, setusers] = useState([]);
+    const { addUser, users } = props
+
 
     const validefirsrtname = (e) => {
         setFirstname(e.target.value)
@@ -31,7 +32,7 @@ const Users = () => {
         }
 
     }
-    
+
     const validelastname = (e) => {
         setLastname(e.target.value)
         if (e.target.value.length < 3) {
@@ -54,7 +55,7 @@ const Users = () => {
     }
     const validepassword = (e) => {
         setPassword(e.target.value)
-        if (e.target.value.length<8 && isNaN(e.target.value)) {
+        if (e.target.value.length < 8) {
             setPasswordError("password att 8!☹");
         }
         else {
@@ -76,7 +77,9 @@ const Users = () => {
     const SubmitUser = (e) => {
         e.preventDefault(); // !!!!!!!!!!!!!!!!!!!haje metseche!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 
-        setusers([...users,{ firsrtname, lastname, email, password, conf_passwored }]);
+        // setusers([...users, { firsrtname, lastname, email, password, conf_passwored }]);
+        const newUser = {firsrtname, lastname, email, password, conf_passwored}
+        addUser(newUser)
         setFirstname("");
         setLastname("");
         setEmail("");
@@ -93,14 +96,14 @@ const Users = () => {
             return "Welcome.Please submit the from :)";
         }
     }
-   
+
     return (
         <>
             <form onSubmit={SubmitUser}>
                 <h3>{message()}</h3>
                 <div>
                     <label>First name</label>
-                    <input value={firsrtname} onChange={ validefirsrtname } />
+                    <input value={firsrtname} onChange={validefirsrtname} />
                     {
                         firsrtnameError ?
                             <p>{firsrtnameError}</p> :
@@ -109,7 +112,7 @@ const Users = () => {
                 </div>
                 <div>
                     <label>Laste name</label>
-                    <input value={lastname} onChange={ validelastname } />
+                    <input value={lastname} onChange={validelastname} />
                     {
                         lastnameError ?
                             <p>{lastnameError}</p> :
@@ -118,7 +121,7 @@ const Users = () => {
                 </div>
                 <div>
                     <label> Email password </label>
-                    <input value={email} onChange={validemail } />
+                    <input value={email} onChange={validemail} />
                     {
                         emailError ?
                             <p>{emailError}</p> :
@@ -127,7 +130,7 @@ const Users = () => {
                 </div>
                 <div>
                     <label>Password</label>
-                    <input value={password} onChange={ validepassword } />
+                    <input value={password} onChange={validepassword} />
                     {
                         passwordError ?
                             <p>{passwordError}</p> :
@@ -136,7 +139,7 @@ const Users = () => {
                 </div>
                 <div>
                     <label>confirme Password</label>
-                    <input value={conf_passwored} onChange={ valideconf_passwored } />
+                    <input value={conf_passwored} onChange={valideconf_passwored} />
                     {
                         conf_passworedError ?
                             <p>{conf_passworedError}</p> :
@@ -145,11 +148,25 @@ const Users = () => {
                 </div>
 
                 <div> <button>Create User</button></div>
-                <div>
-                    <h3>Users</h3>
-                    {users.map=((users,index)=> <p key={index}>{users.firsrtname}{users.lastname}{users.email}</p> )}
-                    </div>
+
             </form>
+            <div>
+                <h3>Users</h3>
+                {
+                    users.map((elm, index) => {
+                        return <p key={index}>
+                            <p>{elm.firsrtname}</p>
+                            <p>{elm.lastname}</p>
+
+                            <p>{elm.email}</p>
+
+
+
+                        </p>
+                    })
+                }
+            </div>
+
         </>
     )
 }

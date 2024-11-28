@@ -5,11 +5,16 @@ import './App.css'
 import Users from './components/Users'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [users, setusers] = useState([]);
+
+  //* Let's create a function that allow us to add user in the state
+  const addUser =(newUser)=> {
+    setusers([...users, newUser])
+  }
 
   return (
     <>
-     <Users></Users>
+     <Users addUser={addUser} users={users} />
     </>
   )
 }
