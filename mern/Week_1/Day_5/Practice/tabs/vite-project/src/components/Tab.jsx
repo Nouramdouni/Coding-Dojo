@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Tab = () => {
+const Tab = ({tab}) => {
   return (
-    <div><button onClick={}>tab1</button>
-    <button>tab2</button>
-    <button>tab3</button>
+    <div><button onClick={()=>tab(0)}>tab1</button>
+    <button onClick={()=>tab(1)}>tab2</button>
+    <button onClick={()=>tab(2)}>tab3</button>
     </div>
   )
 }
