@@ -1,14 +1,10 @@
 import React from 'react'
 
-const Add = (props) => { 
-    const {addTask}=props 
-    // const{task}=props  
-    const [task,setTask]=useState("") 
-
+const Add = ({addTask}) => { 
+    const [task,setTask]=useState({}) 
     const SubmitTaks=(e)=>{
-
         e.preventDefault();  
-        setTask("");
+        setTask();
 
 
     }
