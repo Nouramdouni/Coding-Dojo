@@ -1,0 +1,40 @@
+*{ 
+    margin: 0px; 
+    padding: 0px;
+}
+#t1{
+ width: 100%;
+}
+#con{   
+    padding: 5%;
+    display: flex; 
+    justify-content: center;
+    
+} 
+.nav 
+{ margin-top: 5px;
+    display: flex;   
+    padding: 10px;
+    justify-content:space-around; 
+    background-color: rgb(238,238,238);  
+    border: 3px solid black;
+
+
+
+}
+.b{ 
+    display: flex; 
+    flex-direction: column; 
+
+} 
+.carte{  background-color: rgb(240, 237, 237);  
+    text-align: center; 
+    margin: 5%; 
+    width: 900px;
+    font-size: large; 
+    margin-left:20% ; 
+    padding: 5%; 
+    box-shadow: 5px  5px 5px rgb(66, 66, 66); 
+    border-radius: 5px;
+
+}

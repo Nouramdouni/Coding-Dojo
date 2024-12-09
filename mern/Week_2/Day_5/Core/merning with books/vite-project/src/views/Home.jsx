@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios" 
 import { useEffect } from 'react' 
 import { Link } from 'react-router-dom'
+import Navb from "./Navb" 
 
 const Home = () => { 
     const [ books,setBooks]=useState([]) 
@@ -22,7 +23,9 @@ const Home = () => {
 
 
   return ( 
-    <div> 
+    <div>   
+
+        <Navb title="ALL book"></Navb>
         <table className='table table-sm san m-5' >
             <thead>
                 <tr>
@@ -40,9 +43,9 @@ const Home = () => {
                             <td>{ book.title}</td>
                             <td>{ book.outhor}</td>
                             <td>{book.page}</td>
-                            <td>{book.isAvailable? "yes" : "no"}</td> 
+                            <td>{book.isAvailable? "yes" : "no"} </td> 
                             <td> 
-                                <Link to={"/book/"+ book._id} className=' btn btn-light'>Book Details </Link></td>
+                                <Link to={"/book/"+ book._id} className=' btn btn-success'>Book Details </Link></td>
                         </tr>)
                     })
                 }

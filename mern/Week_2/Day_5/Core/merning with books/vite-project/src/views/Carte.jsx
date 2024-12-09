@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom' 
-import { Navigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Navb from './Navb' 
+import "../style/Cart.css"
 const Carte = () => {
 
- const [books, setBooks] = useState({})
+    const [books, setBooks] = useState({})
     const { id } = useParams()
+    const navigate = useNavigate()
     useEffect(() => {
         axios.get(`http://localhost:5000/api/book/${id}`)
             .then((res) => {
@@ -18,27 +21,32 @@ const Carte = () => {
 
             })
 
-    },[]) 
-    const deleteEmma = () => { axios.delete(`http://localhost:5000/api/book/${id}`)
-   .then((res) => {
-      console.log(res.data);
-      Navigate("/"); 
+    }, [])
+    const deleteEmma = () => {
+        axios.delete(`http://localhost:5000/api/book/${id}`)
+            .then((res) => {
+                console.log(res.data);
+                navigate("/");
 
-   })
-}
+            })
+    }
     return (
-        <div className='text-center m-5'>
-            {
-                books? <div>
-                    <h1>{books.title}</h1>
-                    <h2>{books.outhor}</h2>
-                    <h3>{books.page}</h3> 
-                    <button className='btn btn-dark' onClick={deleteEmma}>Borrow</button>
+        <div>
+            <Navb title={books.title} />
+            <div className='carte'>
+                {
+                    books ? <div>
+                        <p>{books.title}</p>
+                        <p>{books.outhor}</p>
+                        <p> Page count :{books.page}</p>
+                        
+                        <button className='btn btn-dark' onClick={deleteEmma}>Borrow</button>
 
-                </div>:<p>loading.....</p>
+                    </div> : <p>loading.....</p>
 
-            }
+                }
 
+            </div>
         </div>
     )
 }

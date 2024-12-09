@@ -2,62 +2,68 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import "../style/Cart.css" 
+import Navb from './Navb';
 
 
 const Addbooks = () => {
     const [title, setTitle] = useState("");
-    const [author_Name, setAuthor_Name] = useState("");
+    const [outhor, setOuthor_Name] = useState("");
     const [page, SetPge] = useState(0);
-    const [celebrityStatus, setCelebrityStatus] = useState(false);
+    const [isAvailable, setIsAvailable] = useState(false);
     const navigate = useNavigate()
-
 
 
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/api/book", {
+        console.error("azerty");
+        
+        const newBook = {
             title,
-            author_Name,
+            outhor,
             page,
-            celebrityStatus
-        })
+            isAvailable
+
+        }
+        // setTitle("")
+        // setOuthor_Name("")
+        // SetPge(0)
+        // setCelebrityStatus(false)
+
+        axios.post("http://localhost:5000/api/book", newBook)
             .then(res => {
-                console.log(res);
                 console.log(res.data);
+
                 navigate("/");
             })
-    }
-    const titleHandler = (e) => {
-        setTitle(e.target.value)
-    }
-    const author_NameHandler = (e) => {
-        setAuthor_Name(e.target.value)
+            .catch(err => {
+                console.log(err)
+            })
     }
 
-    const pageHandler = (e) => {
-        SetPge(e.target.value)
-    }
-
-
-    const celebrityStatusHandler = (e) => {
-        setCelebrityStatus(e.target.value)
-    }
-
-
-
+    
 
 
     return (
-        <div><form method="post" >
-            <label htmlFor="">Title</label>
-            <input type="text" onChange={titleHandler} value={title} />
-            <label htmlFor="">Author Name</label>
-            <input type="text" onChange={author_NameHandler} value={author_Name} />
-            <label htmlFor=""> Page Count</label>
-            <input type="number" onChange={pageHandler} value={page} />
-            <label htmlFor=""> Is it Available?</label><input type="checkbox" onChange={celebrityStatusHandler} value={celebrityStatus} />
-            <button type="button">Add Book!</button>
-        </form>
+        <div > 
+            <Navb title="add book"/>
+            <div  id='con'>
+                <form onSubmit={(e)=>submitHandler(e)} >  
+                    <div>
+                        <label htmlFor="">Title</label>
+                        <br />
+                        <input type="text" onChange={e=>setTitle(e.target.value)} className='form-control' id="t1" value={title} /></div>
+                    <div><label htmlFor="">Author Name</label>
+                        <br />
+                        <input type="text" onChange={e=>setOuthor_Name(e.target.value)} className='form-control'id="t1" value={outhor} /></div>
+                    <div><label htmlFor=""> Page Count</label>
+                        <br />
+                        <input type="number" onChange={e=>SetPge(e.target.value)} className='form-control'id="t1" value={page} /></div>
+
+                    <div className='mt-4'><label htmlFor=""> Is it Available?</label><input type="checkbox" checked={isAvailable} onChange={e=> setIsAvailable(e.target.checked)}  /> </div>
+                    <button className='btn btn-dark '>Add Book!</button>
+                </form>
+            </div>
 
         </div>
     )
