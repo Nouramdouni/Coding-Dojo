@@ -9,7 +9,8 @@ import "../style/Cart.css"
 import Navb from './Navb';
 
 const Update = () => { 
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState(""); 
+    const [ titlee,setTitlee]=useState("")
     const [outhor, setOuthor_Name] = useState("");
     const [page, SetPge] = useState(0);
     const [isAvailable, setIsAvailable] = useState(false);
@@ -21,7 +22,8 @@ const Update = () => {
             .then((res) => {
                 console.log("**********************")
                 console.log(res.data) 
-                setTitle(res.data.title) 
+                setTitle(res.data.title)  
+                setTitlee(res.data.title)
                 setOuthor_Name(res.data.outhor) 
                 SetPge (res.data.page) 
                 setIsAvailable(res.data.isAvailable)
@@ -64,7 +66,7 @@ const Update = () => {
 
   return (
     <div > 
-    <Navb title="add book"/>
+    <Navb title={"upadte" +titlee}/>
     <div  id='con'>
         <form onSubmit={(e)=>submitHandler(e)} >  
             <div>

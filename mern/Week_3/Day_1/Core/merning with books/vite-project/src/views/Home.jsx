@@ -25,7 +25,7 @@ const Home = () => {
   return ( 
     <div>   
 
-        <Navb title="ALL book"></Navb>
+        <Navb title="Book Catalog"></Navb>
         <table className='table table-sm san m-5' >
             <thead>
                 <tr>
