@@ -1,0 +1,17 @@
+<p>{{ message }}</p> 
+<table class="table  ">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students  ">
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+      </tr>
+    </tbody>
+  </table>
