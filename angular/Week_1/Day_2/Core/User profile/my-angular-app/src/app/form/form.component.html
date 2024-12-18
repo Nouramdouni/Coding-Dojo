@@ -1,0 +1,18 @@
+
+<form #dataForm="ngForm" (ngSubmit)="onSubmit(dataForm.value)" >
+    <label for="">Full Name</label>
+    <input ngModel required  name="name">
+    <label for="">Age</label>
+    <input type="number"  name="age" ngModel required >  
+    <select name="gender" id=""  ngModel required > 
+        <option value="">gender</option>
+        <option value="Male">Male</option>
+        <option value="femaile">femaile</option>
+        <option value="Other">Other</option>
+    </select>
+    <label for="">Email</label>
+    <input type="email" name="email" ngModel required> 
+   <div><label for="">is suvscribed</label>
+    <input name="suvscribed" type="checkbox"   ngModel required></div> 
+    <button class="btn btn-dark" type="submit" [disabled]="dataForm.invalid"> submite</button>
+</form>
