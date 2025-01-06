@@ -1,0 +1,22 @@
+<p>books works!</p> 
+<table>
+    <thead>
+        <tr>
+            <td>Title</td> 
+            <td>Author</td>
+            <td>Page count </td>
+            <td>Availble</td>  
+            <td>Book Page</td>
+        </tr>
+    </thead> 
+    <tbody>
+        <tr *ngFor="let book of books "> 
+            <td>{{book.title}}</td>
+            <td>{{book.outhor}}</td>
+            <td>{{book.page}}</td>
+            <td>{{book.isAvailable}} \ <a routerLink="/edite">Edite</a></td>  
+            <td><button>books details</button></td>
+
+        </tr>
+    </tbody>
+</table>

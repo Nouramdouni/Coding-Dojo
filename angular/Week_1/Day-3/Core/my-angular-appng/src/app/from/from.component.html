@@ -1,0 +1,19 @@
+<p>from works!</p>
+<form (ngSubmit)="addItem()"> 
+    <label for="">search for :</label> 
+    <select name="search" [(ngModel)]="newItem.search"  id=""> 
+        <p *ngIf="errorMessage.search" class="error">{{errorMessage.search.message}}</p>
+
+        <option value="plantes"> 
+            plantes
+        </option>
+        <option value="pepole">
+            pepole
+        </option>
+    </select>
+    <label for="">ID</label> 
+    <input type="number" [(ngModel)]="newItem.id" name="id">  
+    <p *ngIf="errorMessage.id" class="error">{{errorMessage.id.message}}</p>
+
+    <button type="submit">search</button>
+</form>
