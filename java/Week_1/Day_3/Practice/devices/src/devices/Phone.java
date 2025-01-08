@@ -1,0 +1,35 @@
+package devices;
+
+public class Phone  extends Devices {
+
+	public void makeCall() { 
+		
+		int old=this.getBattery();
+		this.setBattery(old-5);  
+        System.out.println("You make a call." +this.getBattery());
+
+		
+	}
+	public void playGame () { 
+		
+		int old=this.getBattery();
+		this.setBattery(old-20);  
+        System.out.println("You paly a game twice."+this.getBattery());
+
+		
+	} 
+	public void Charge() { 
+		
+		int old=this.getBattery();
+		this.setBattery(old+50);   
+		if( this.getBattery()>100) {  
+			this.setBattery(old=100);  
+			 System.out.println("your phone is 100%" + this.getBattery());
+			
+			
+		}
+
+		
+	}
+
+}

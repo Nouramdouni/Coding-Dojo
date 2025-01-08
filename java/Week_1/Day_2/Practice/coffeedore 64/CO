@@ -1,0 +1,46 @@
+class Device {
+    protected int battery;
+
+    public Device() {
+        this.battery = 100;
+    }
+
+    public void status() {
+        System.out.println("Battery remaining: " + this.battery);
+    }
+}
+
+class Phone extends Device {
+
+    public void makeCall() {
+        this.battery -= 5;
+        System.out.println("You make a call.");
+        status();
+    }
+
+    public void playGame() {
+        this.battery -= 20;
+        System.out.println("You play a game.");
+        status();
+    }
+
+    public void charge() {
+        this.battery += 50;
+        if (this.battery > 100) {
+            this.battery = 100;
+        }
+        System.out.println("You charge the phone.");
+        status();
+    }
+}
+
+public class DeviceTest {
+    public static void main(String[] args) {
+        Phone phone = new Phone();
+        phone.makeCall();
+        phone.makeCall();
+        phone.makeCall();
+        phone.playGame();
+        phone.playGame();
+        phone.charge();
+    }}
