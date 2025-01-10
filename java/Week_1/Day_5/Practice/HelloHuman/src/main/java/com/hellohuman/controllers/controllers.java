@@ -1,0 +1,24 @@
+package com.hellohuman.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class controllers { 
+	@RequestMapping("/")
+	public String hellohumen(@RequestParam(value="name",required=false)String name) {  
+		String msg=String.format("hello %s",name);
+		
+		return msg ;
+	}
+	@RequestMapping("/b/")
+	public String Bhellohumen(@RequestParam(value="name",required=false)String name ,@RequestParam(value="lastname",required=false)String lastname ) {  
+		String msg=String.format("hello %s %s",name,lastname);
+		
+		return msg ;
+	}
+
+	
+
+}
