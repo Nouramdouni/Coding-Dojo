@@ -1,0 +1,14 @@
+package devices;
+
+public class DeviceTest {
+	public static void main(String[] args) {
+        Phone phone = new Phone();
+        phone.Makecall();
+        phone.Makecall();
+        phone.Makecall();
+        phone.PlayGame();
+        phone.PlayGame();
+        phone.Charge();
+    }}
+
+

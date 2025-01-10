@@ -1,0 +1,9 @@
+package devices;
+
+public class Phone  extends Devices {
+
+	public void Makecall() { 
+		
+		this.battery -=5;
+	}
+}
