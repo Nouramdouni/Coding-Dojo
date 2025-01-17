@@ -1,0 +1,39 @@
+package com.Burger.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.Burger.models.Burger;
+import com.Burger.services.burgerservices;
+
+import jakarta.validation.Valid;
+
+@Controller
+public class BuergerController { 
+	@Autowired
+	burgerservices burgersev;  
+	@GetMapping("/")
+	public String ceratTask(@ModelAttribute("burger")Burger burger, Model model) { 
+		List<Burger> burgers = burgersev.gettAllBurger();
+		model.addAttribute("burgers",burgers);
+		return "burgers.jsp";
+	} 
+	@PostMapping ("/process")
+	public String Savebuger(@Valid @ModelAttribute("burger")Burger burger,BindingResult  result ,Model model) {
+		
+		if(result.hasErrors()) {
+			model.addAttribute("burgers",burgersev.gettAllBurger());
+			return"burgers.jsp";
+		}
+		burgersev.ceratTask(burger); 
+		return "redirect:/";
+		
+
+}}
